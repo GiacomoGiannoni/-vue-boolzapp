@@ -41,5 +41,72 @@
     z-index: 999;
 }
 
+/*header*/
 
+#MY_header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EAEAEA;
+}
 
+.size_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 60px;
+}
+
+.MY_container {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.MY_name {
+    margin-left: 2px;
+    margin-bottom: 0;
+}
+
+.MY_input {
+    color: #B1B1B1;
+    line-height: 60px;
+    margin-right: 10px;
+}
+
+/*main*/
+main {
+    background-color: #EAEAEA;
+}
+
+.alert {
+    border-radius: 0;
+    background-color: #8EDAFC;
+    margin-bottom: 0;
+}
+
+.Main_input {
+    background-color: white;
+    color: #8EDAFC;
+    border: solid white;
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 5px;
+}
+
+.Main_link {
+    color: #B1B1B1;
+}
+
+.input-group-text {
+    background-color: white;
+}
+
+.Main_search {
+    width: auto;
+    margin-top: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
