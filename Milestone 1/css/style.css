@@ -3,3 +3,43 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-color: #D9DBD4;
+    overflow: hidden;
+}
+
+.line_top {
+    width: 100vw;
+    height: 100px;
+    background-color: #009688;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.container {
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    z-index: 999;
+}
+
+#main_nav {
+    flex-shrink: 0;
+    background-color: white;
+    overflow: hidden;
+    z-index: 999;
+}
+
+#content {
+    background-color: white;
+    overflow: hidden;
+    z-index: 999;
+}
+
+
+
