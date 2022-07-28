@@ -12,8 +12,7 @@
     </head>
     <body>
         <div id="wrapper">
-            <div class="line_top"></div>
-            <div class="container">
+            <div id="app" class="container">
                 <aside id="main_nav" class="col-sm-4 col-md-4 col-lg-4">
                     <header id="MY_header">
                         <div class="MY_container">
@@ -41,11 +40,11 @@
                         </div>
                         <!--chat-->
                         <div id="CHAT">
-                            <div class="Main_chat">
+                            <div v-for="contact in contacts" class="Main_chat">
                                 <div class="Main_avatar">
-                                    <img class="size_img" src="img/avatar_1.jpg" alt="avatar_1">
+                                    <img class="size_img" :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                                     <div>
-                                        <p class="name">Giacomo</p>
+                                        {{contact.name}}
                                         <p class="last_message">Ultimo messaggio inviato</p>
                                     </div>
                                 </div>
@@ -53,97 +52,8 @@
                                     <p class="ora">12:00</p>
                                 </div>
                             </div>
-    
-                            <div class="Main_chat">
-                                <div class="Main_avatar">
-                                    <img class="size_img" src="img/avatar_1.jpg" alt="avatar_1">
-                                    <div>
-                                        <p class="name">Giacomo</p>
-                                        <p class="last_message">Ultimo messaggio inviato</p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="ora">12:00</p>
-                                </div>
-                            </div>
-    
-                            <div class="Main_chat">
-                                <div class="Main_avatar">
-                                    <img class="size_img" src="img/avatar_1.jpg" alt="avatar_1">
-                                    <div>
-                                        <p class="name">Giacomo</p>
-                                        <p class="last_message">Ultimo messaggio inviato</p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="ora">12:00</p>
-                                </div>
-                            </div>
-    
-                            <div class="Main_chat">
-                                <div class="Main_avatar">
-                                    <img class="size_img" src="img/avatar_1.jpg" alt="avatar_1">
-                                    <div>
-                                        <p class="name">Giacomo</p>
-                                        <p class="last_message">Ultimo messaggio inviato</p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="ora">12:00</p>
-                                </div>
-                            </div>
-    
-                            <div class="Main_chat">
-                                <div class="Main_avatar">
-                                    <img class="size_img" src="img/avatar_1.jpg" alt="avatar_1">
-                                    <div>
-                                        <p class="name">Giacomo</p>
-                                        <p class="last_message">Ultimo messaggio inviato</p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="ora">12:00</p>
-                                </div>
-                            </div>
-    
-                            <div class="Main_chat">
-                                <div class="Main_avatar">
-                                    <img class="size_img" src="img/avatar_1.jpg" alt="avatar_1">
-                                    <div>
-                                        <p class="name">Giacomo</p>
-                                        <p class="last_message">Ultimo messaggio inviato</p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="ora">12:00</p>
-                                </div>
-                            </div>
-    
-                            <div class="Main_chat">
-                                <div class="Main_avatar">
-                                    <img class="size_img" src="img/avatar_1.jpg" alt="avatar_1">
-                                    <div>
-                                        <p class="name">Giacomo</p>
-                                        <p class="last_message">Ultimo messaggio inviato</p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="ora">12:00</p>
-                                </div>
-                            </div>
-    
-                            <div class="Main_chat">
-                                <div class="Main_avatar">
-                                    <img class="size_img" src="img/avatar_1.jpg" alt="avatar_1">
-                                    <div>
-                                        <p class="name">Giacomo</p>
-                                        <p class="last_message">Ultimo messaggio inviato</p>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <p class="ora">12:00</p>
-                                </div>
-                            </div>
+                            
+                            
                         </div>
                     </main>
                 </aside>

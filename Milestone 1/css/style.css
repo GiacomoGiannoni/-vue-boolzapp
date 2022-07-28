@@ -7,25 +7,17 @@
 #wrapper {
     width: 100vw;
     height: 100vh;
-    background-color: #D9DBD4;
-    overflow: hidden;
-}
-
-.line_top {
-    width: 100vw;
-    height: 100px;
-    background-color: #009688;
-    position: fixed;
-    top: 0;
-    z-index: 10;
+    background: rgb(217,219,212);
+    background: linear-gradient(0deg, rgba(217,219,212,1) 0%, rgba(217,219,212,1) 80%, rgba(0,150,136,1) 80%, rgba(0,150,136,1) 100%);    overflow: hidden;
 }
 
 .container {
-    height: calc(100vh - 40px);
+    width: 90vw;
+    height: 90vh;
+    margin: auto;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-    z-index: 999;
 }
 
 #main_nav {
@@ -81,6 +73,7 @@ main {
 }
 
 .alert {
+    height: 70px;
     border-radius: 0;
     background-color: #8EDAFC;
     margin-bottom: 0;
@@ -105,6 +98,7 @@ main {
 
 .Main_search {
     width: auto;
+    height: 40px;
     margin-top: 5px;
     margin-left: 3px;
     margin-right: 3px;
@@ -113,6 +107,7 @@ main {
 
 #CHAT {
     overflow-y: scroll;
+    height: calc(100% - 40px - 70px - 60px);
 }
 
 .Main_chat {
@@ -146,9 +141,10 @@ main {
 
 /*content main*/
 #content main {
-    width: 100%;
     height: calc(100% - 120px);
     background-image: url("../img/mine.jpg");
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .sent, .received {
