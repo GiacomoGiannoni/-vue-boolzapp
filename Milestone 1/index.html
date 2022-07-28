@@ -34,17 +34,17 @@
                               <a class="Main_link" href="#">Attiva notifiche desktop</a>
                             </div>
                         </div>
-                        <div class="input-group flex-nowrap Main_search">
+                        <div class="input-group flex-nowrap Main_search" searchUser>
                             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
-                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="addon-wrapping">
+                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="addon-wrapping" v-model="ricerca">
                         </div>
                         <!--chat-->
                         <div id="CHAT">
-                            <div v-for="contact in contacts" class="Main_chat">
+                            <div v-for="(user, x) in contacts" @click="selectedChat(x)" v-if="contacts[x].visible == true" class="Main_chat">
                                 <div class="Main_avatar">
-                                    <img class="size_img" :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                                    <img class="size_img" :src="'img/avatar' + user.avatar + '.jpg'" :alt="user.name">
                                     <div>
-                                        {{contact.name}}
+                                        <span>{{user.name}}</span>
                                         <p class="last_message">Ultimo messaggio inviato</p>
                                     </div>
                                 </div>
@@ -60,9 +60,9 @@
                 <section id="content" class="col-sm-7 col-md-7 col-lg-7">
                     <header id="MY_header">
                         <div class="MY_container">
-                            <img class="size_img" src="img/avatar_2.jpg" alt="avatar_1">
+                            <img class="size_img" :src="'img/avatar' + contacts[PersonaSelezionata].avatar + '.jpg'" alt="avatar_1">
                             <div>
-                                <p class="name">Michele</p>
+                                <p class="name">{{contacts[PersonaSelezionata].name}}</p>
                                 <p class="last_message">Ultimo messaggio inviato</p>
                             </div>
                         </div>
@@ -73,18 +73,17 @@
                         </div>
                     </header>
 
-                    <main>
-                        <div v-for="contact in contacts" class="row justify-content-end px-5 pt-5">
-                            <div class="col-5 sent">
-                              <span>{{contact.messages.message}}</span>
-                              <span class="ora">15:30</span>
+                    <main >
+                        <div v-for="message in contacts[PersonaSelezionata].messages">
+                            <div v-if="message.status == 'sent'" class="row justify-content-end px-5 pt-5">
+                                <div class="col-5 sent">{{message.message}}
+                                    <div class="ora">12:55</div>
+                                </div>
                             </div>
-                            <div></div>
-                        </div>
-                        <div class="row justify-content-start px-5 pt-2">
-                            <div class="col-5 received">
-                                <span>Tutto fatto!</span>
-                                <span class="ora">16:30</span>
+                            <div v-else-if="message.status == 'received'" class="row justify-content-start px-5 pt-2">
+                                <div class="col-5 received">{{message.message}}
+                                    <div class="ora">12:55</div>
+                                </div>
                             </div>
                         </div>
                     </main>
@@ -92,7 +91,7 @@
                     <footer>
                         <div class="object">
                             <i class="fa-regular fa-face-smile px-4"></i>
-                            <input type="text" class="form-control px-4" id="formGroupExampleInput" placeholder="Scrivi un messaggio">
+                            <input type="text" class="form-control px-4" id="formGroupExampleInput" placeholder="Scrivi un messaggio" v-model="inputText" @keyup.enter="sendMessage">
                             <i class="fa-solid fa-microphone px-4"></i>
                         </div>
                     </footer>

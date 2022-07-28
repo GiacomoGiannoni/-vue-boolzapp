@@ -2,6 +2,9 @@ var app = new Vue(
     {
         el: '#app',
         data: {
+            PersonaSelezionata: 0,
+            ricerca: '',
+            inputText: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -162,10 +165,65 @@ var app = new Vue(
                             message: 'OK!!',
                             status: 'received'
                         }
-                    ],
+                    ]
+                    
                 }
+            
             ]
+            
         },
+        methods: {
+            selectedChat(index) {
+                this.PersonaSelezionata = index;
+            },
+            sendMessage() {
+                this.inputText.trim();
+                if (!this.inputText == '') {
+                    let newMessage = {
+                        message: this.inputText,
+                        status: 'sent'
+                    }
+                    this.contacts[this.PersonaSelezionata].messages.push(newMessage);
+                    this.inputText = '';
+                }
+            }
+        },
+        sendMessage() {
+            this.inputText = this.inputText.trim();
+            if (!this.inputText == '') {
+                let newMessage = {
+                    message: this.inputText,
+                    status: 'sent'
+                }
+                this.contacts[this.PersonaSelezionata].messages.push(newMessage);
+                this.inputText = '';
+                this.replyMessage();
+            }
+        },
+        replyMessage() {
+            setTimeout(() => {
+                let random = Math.floor(Math.random() * 4);
+                let risposte = ['Bono', 'Boia Deh', 'Ok', 'Sei un grande']
+                let reply = {
+                    message: risposte[random],
+                    status: 'received'
+                }
+                this.contacts[this.PersonaSelezionata].messages.push(reply);
+                }, "1000");
+        },
+        computed: {
+            searchUser() {
+                this.ricerca = this.ricerca.charAt(0).toUpperCase() + this.ricerca.slice(1);
+                for (x = 0; x < this.contacts.length; x++) {
+                    if(!this.contacts[x].name.includes(this.ricerca)) {
+                        this.contacts[x].visible = false;
+                    } else {
+                        this.contacts[x].visible = true;
+                    }
+                }
+            }
+            
+        }
     }
 )
     

@@ -145,6 +145,7 @@ main {
     background-image: url("../img/mine.jpg");
     overflow-y: scroll;
     overflow-x: hidden;
+    background-size: contain;
 }
 
 .sent, .received {
