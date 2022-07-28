@@ -77,13 +77,18 @@
                         <div v-for="message in contacts[PersonaSelezionata].messages">
                             <div v-if="message.status == 'sent'" class="row justify-content-end px-5 pt-5">
                                 <div class="col-5 sent">{{message.message}}
-                                    
-                                    <div class="ora">{{getDate}}</div>
+                                    <div class="dropdown myDropdown">
+                                        <button class="btn dropdown-toggle border-0 p-1" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                        <ul class="dropdown-menu p-0 bg-danger">
+                                          <li><a class="dropdown-item p-1" @click="deleteMessage(i)" href="#">Delete Message</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="Ora">{{getDate}}</div>
                                 </div>
                             </div>
                             <div v-else-if="message.status == 'received'" class="row justify-content-start px-5 pt-2">
                                 <div class="col-5 received">{{message.message}}
-                                    <div class="ora">{{getDate}}</div>
+                                    <div class="Ora">{{getDate}}</div>
                                 </div>
                             </div>
                         </div>

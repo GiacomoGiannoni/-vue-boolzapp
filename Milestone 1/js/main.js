@@ -195,7 +195,10 @@ var app = new Vue(
                     }
                     this.contacts[this.PersonaSelezionata].messages.push(reply);
                     }, "1000");
-            }
+            },
+            deleteMessage(i) {
+                this.contacts[this.selectedUser].messages.splice(i, 1)
+            },
         },
         computed: {
             searchUser() {
