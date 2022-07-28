@@ -2,9 +2,9 @@ var app = new Vue(
     {
         el: '#app',
         data: {
-            PersonaSelezionata: 0,
-            ricerca: '',
+            PersonaSelezionata: 0,         
             inputText: '',
+            ricerca: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -165,19 +165,16 @@ var app = new Vue(
                             message: 'OK!!',
                             status: 'received'
                         }
-                    ]
-                    
-                }
-            
-            ]
-            
+                    ]                
+                }           
+            ]         
         },
         methods: {
             selectedChat(index) {
                 this.PersonaSelezionata = index;
             },
             sendMessage() {
-                this.inputText.trim();
+                this.inputText = this.inputText.trim();
                 if (!this.inputText == '') {
                     let newMessage = {
                         message: this.inputText,
@@ -185,31 +182,20 @@ var app = new Vue(
                     }
                     this.contacts[this.PersonaSelezionata].messages.push(newMessage);
                     this.inputText = '';
+                    this.replyMessage();
                 }
+            },
+            replyMessage() {
+                setTimeout(() => {
+                    let random = Math.floor(Math.random() * 4);
+                    let risposte = ['Bono', 'Boia Deh', 'Ok', 'Sei un grande']
+                    let reply = {
+                        message: risposte[random],
+                        status: 'received'
+                    }
+                    this.contacts[this.PersonaSelezionata].messages.push(reply);
+                    }, "1000");
             }
-        },
-        sendMessage() {
-            this.inputText = this.inputText.trim();
-            if (!this.inputText == '') {
-                let newMessage = {
-                    message: this.inputText,
-                    status: 'sent'
-                }
-                this.contacts[this.PersonaSelezionata].messages.push(newMessage);
-                this.inputText = '';
-                this.replyMessage();
-            }
-        },
-        replyMessage() {
-            setTimeout(() => {
-                let random = Math.floor(Math.random() * 4);
-                let risposte = ['Bono', 'Boia Deh', 'Ok', 'Sei un grande']
-                let reply = {
-                    message: risposte[random],
-                    status: 'received'
-                }
-                this.contacts[this.PersonaSelezionata].messages.push(reply);
-                }, "1000");
         },
         computed: {
             searchUser() {
@@ -221,8 +207,12 @@ var app = new Vue(
                         this.contacts[x].visible = true;
                     }
                 }
-            }
-            
+            },
+            getDate() {
+                var DateTime = luxon.DateTime;
+                const date = DateTime.now().minus({minutes: 15}).toFormat('HH:mm');
+                return date;
+            }    
         }
     }
 )

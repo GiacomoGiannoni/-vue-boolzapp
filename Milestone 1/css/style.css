@@ -158,14 +158,14 @@ main {
 }
 
 .sent {
-    background-color: white;
+    background-color: #D5F9BA;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .received {
-    background-color: #D5F9BA;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;

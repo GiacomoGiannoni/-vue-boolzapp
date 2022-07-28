@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                                 <div class="info">
-                                    <p class="ora">12:00</p>
+                                    <p class="ora">{{getDate}}</p>
                                 </div>
                             </div>
                             
@@ -63,7 +63,7 @@
                             <img class="size_img" :src="'img/avatar' + contacts[PersonaSelezionata].avatar + '.jpg'" alt="avatar_1">
                             <div>
                                 <p class="name">{{contacts[PersonaSelezionata].name}}</p>
-                                <p class="last_message">Ultimo messaggio inviato</p>
+                                <p class="last_message">Ultimo accesso oggi alle {{getDate}}</p>
                             </div>
                         </div>
                         <div class="MY_input d-flex">
@@ -77,12 +77,13 @@
                         <div v-for="message in contacts[PersonaSelezionata].messages">
                             <div v-if="message.status == 'sent'" class="row justify-content-end px-5 pt-5">
                                 <div class="col-5 sent">{{message.message}}
-                                    <div class="ora">12:55</div>
+                                    
+                                    <div class="ora">{{getDate}}</div>
                                 </div>
                             </div>
                             <div v-else-if="message.status == 'received'" class="row justify-content-start px-5 pt-2">
                                 <div class="col-5 received">{{message.message}}
-                                    <div class="ora">12:55</div>
+                                    <div class="ora">{{getDate}}</div>
                                 </div>
                             </div>
                         </div>
@@ -99,8 +100,7 @@
             </div>
         </div>
 
-
-
+        <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.1/build/global/luxon.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script src="js/main.js" type="text/javascript"></script>
     </body>
