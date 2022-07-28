@@ -74,21 +74,15 @@
                     </header>
 
                     <main>
-                        <div class="row justify-content-end px-5 pt-5">
-                            <div class="col-5 received">
-                              <span>Hai portato a spasso il cane?</span>
+                        <div v-for="contact in contacts" class="row justify-content-end px-5 pt-5">
+                            <div class="col-5 sent">
+                              <span>{{contact.messages.message}}</span>
                               <span class="ora">15:30</span>
                             </div>
                             <div></div>
                         </div>
-                        <div class="row justify-content-end px-5 pt-2">
-                            <div class="col-5 received">
-                                <span>Ricordati di stendere i panni</span>
-                                <span class="ora">15:50</span>
-                            </div>
-                        </div>
                         <div class="row justify-content-start px-5 pt-2">
-                            <div class="col-5 sent">
+                            <div class="col-5 received">
                                 <span>Tutto fatto!</span>
                                 <span class="ora">16:30</span>
                             </div>
