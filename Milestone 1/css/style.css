@@ -107,7 +107,7 @@ main {
 
 #CHAT {
     overflow-y: scroll;
-    height: calc(100% - 40px - 70px - 60px);
+    height: calc(660px - 40px - 70px - 60px);
 }
 
 .Main_chat {

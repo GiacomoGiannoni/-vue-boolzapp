@@ -197,7 +197,7 @@ var app = new Vue(
                     }, "1000");
             },
             deleteMessage(i) {
-                this.contacts[this.selectedUser].messages.splice(i, 1)
+                this.contacts[this.PersonaSelezionata].messages.splice(i, 1)
             },
         },
         computed: {
@@ -213,7 +213,7 @@ var app = new Vue(
             },
             getDate() {
                 var DateTime = luxon.DateTime;
-                const date = DateTime.now().minus({minutes: 15}).toFormat('HH:mm');
+                const date = DateTime.now().minus({minutes: 0}).toFormat('HH:mm');
                 return date;
             }    
         }
